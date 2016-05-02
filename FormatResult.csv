@@ -1,0 +1,183 @@
+Type,Refactoring in,Reason
+ AP, AP [  SingleColumnRelation.java  <init> Operator type ] , Support multi-row selects within a partition using IN CASSANDRA-6875
+AP ,AP [  MultiColumnRelation.java  createNonInRelation Operator relationType ] , Support multi-row selects within a partition using IN CASSANDRA-6875
+AP ,AP [  SingleColumnRelation.java  <init> boolean onToken ] , Support multi-row selects within a partition using IN CASSANDRA-6875
+AP ,AP [  SingleColumnRelation.java  <init> List<Term.Raw> inValues ] , Support multi-row selects within a partition using IN CASSANDRA-6875
+AP ,AP [  MultiColumnRelation.java  <init> Operator relationType ] , Support multi-row selects within a partition using IN CASSANDRA-6875
+AP ,AP [  OutboundTcpConnection.java  QueuedMessage#isTimedOut long maxTimeNanos ] , Non-droppable verbs shouldn t be dropped from OTC CASSANDRA-5393
+AP ,AP [  OutboundTcpConnection.java  QueuedMessage#isTimedOut long nowNanos ] , Non-droppable verbs shouldn t be dropped from OTC CASSANDRA-5393
+AP ,AP [  BufferedPoolingSegmentedFile.java  Builder#complete boolean isFinal ] , reduce memory used by sstr during bulk load patch by Tyler Hobbs and jbellis for CASSANDRA-5555 
+AP ,AP [  CompressedPoolingSegmentedFile.java  Builder#complete boolean isFinal ] , reduce memory used by sstr during bulk load patch by Tyler Hobbs and jbellis for CASSANDRA-5555 
+AP ,AP [  CompressedPoolingSegmentedFile.java  Builder#complete long overrideLength ] , reduce memory used by sstr during bulk load patch by Tyler Hobbs and jbellis for CASSANDRA-5555 
+AP ,AP [  BufferedPoolingSegmentedFile.java  Builder#complete long overrideLength ] , reduce memory used by sstr during bulk load patch by Tyler Hobbs and jbellis for CASSANDRA-5555 
+AP ,AP [  StreamResultFuture.java  attachSocket int sessionIndex ] , fix bulkloader patch by yukim reviewed by slebresne for CASSANDRA-5542 
+AP ,AP [  CollectionSerializer.java  pack Collection<ByteBuffer> buffers ] , Don t tie client side use of AbstractType to JDBC CASSANDRA-4495 
+AP ,AP [  CollectionSerializer.java  pack int version ] , Don t tie client side use of AbstractType to JDBC CASSANDRA-4495 
+AP ,AP [  StreamResultFuture.java  createAndRegister StreamCoordinator coordinator ] , Fix deadlock in new Streaming code CASSANDRA-5699 
+AP ,AP [  StreamResultFuture.java  initReceivingSide int sessionIndex ] , Fix deadlock in new Streaming code CASSANDRA-5699 
+AP ,AP [  StreamResultFuture.java  initReceivingSide UUID planId ] , Fix deadlock in new Streaming code CASSANDRA-5699 
+AP ,AP [  ProgressInfo.java  <init> int sessionIndex ] , Streaming 2.0 CASSANDRA-5286 
+AP ,AP [  StreamInitMessage.java  <init> int sessionIndex ] , Streaming 2.0 CASSANDRA-5286 
+AP ,AP [  StreamResultFuture.java  <init> StreamCoordinator coordinator ] , Streaming 2.0 CASSANDRA-5286 
+AP ,AP [  StreamResultFuture.java  init StreamCoordinator coordinator ] , Streaming 2.0 CASSANDRA-5286 
+AP ,AP [  SessionInfo.java  <init> int sessionIndex ] , Streaming 2.0 CASSANDRA-5286 
+AP ,AP [  StorageServiceMBean.java  forceRepairRangeAsync Collection<String> dataCenters ] , Add nodetool options to repair specific ranges. Patch by brandonwilliams; reviewed by yukim for CASSANDRA-5280 
+AP ,AP [  StorageServiceMBean.java  forceRepairRangeAsync boolean isLocal ] , Add nodetool options to repair specific ranges. Patch by brandonwilliams; reviewed by yukim for CASSANDRA-5280 
+AP ,AP [  StorageServiceMBean.java  forceRepairRangeAsync boolean isSequential ] , Add nodetool options to repair specific ranges. Patch by brandonwilliams; reviewed by yukim for CASSANDRA-5280 
+AP ,AP [  StorageServiceMBean.java  forceRepairRangeAsync Collection<String> hosts ] , Add nodetool options to repair specific ranges. Patch by brandonwilliams; reviewed by yukim for CASSANDRA-5280 
+AP ,AP [  StorageServiceMBean.java  forceRepairRangeAsync int parallelismDegree ] , Add nodetool options to repair specific ranges. Patch by brandonwilliams; reviewed by yukim for CASSANDRA-5280 
+AP ,AP [  StorageServiceMBean.java  forceRepairRangeAsync boolean repairedAt ] , Add nodetool options to repair specific ranges. Patch by brandonwilliams; reviewed by yukim for CASSANDRA-5280 
+AP ,AP [  StorageServiceMBean.java  forceRepairRangeAsync boolean fullRepair ] , Add nodetool options to repair specific ranges. Patch by brandonwilliams; reviewed by yukim for CASSANDRA-5280 
+AP ,AP [  Term.java  Terminal#bind QueryOptions options ] , CQL3 refactor to allow conversion function CASSANDRA-5226 
+AP ,AP [  StorageServiceMBean.java  forceRepairAsync boolean fullRepair ] , Show progress on nodetool repair command; patch by yukim reviewed Sylvain Lebresne for CASSANDRA-4767 
+AP ,AP [  StorageServiceMBean.java  forceRepairAsync boolean repairedAt ] , Show progress on nodetool repair command; patch by yukim reviewed Sylvain Lebresne for CASSANDRA-4767 
+AP ,AP [  StorageServiceMBean.java  forceRepairAsync boolean isSequential ] , Show progress on nodetool repair command; patch by yukim reviewed Sylvain Lebresne for CASSANDRA-4767 
+AP ,AP [  StorageServiceMBean.java  forceRepairAsync Collection<String> hosts ] , Show progress on nodetool repair command; patch by yukim reviewed Sylvain Lebresne for CASSANDRA-4767 
+AP ,AP [  StorageServiceMBean.java  forceRepairAsync int parallelismDegree ] , Show progress on nodetool repair command; patch by yukim reviewed Sylvain Lebresne for CASSANDRA-4767 
+AP ,AP [  StorageServiceMBean.java  forceRepairAsync Collection<String> dataCenters ] , Show progress on nodetool repair command; patch by yukim reviewed Sylvain Lebresne for CASSANDRA-4767 
+AP ,AP [  StorageServiceMBean.java  forceRepairAsync boolean isLocal ] , Show progress on nodetool repair command; patch by yukim reviewed Sylvain Lebresne for CASSANDRA-4767 
+AP ,AP [  PoolingSegmentedFile.java  <init> String path ] , pool [Compressed]RandomAccessReader objects on the partitioned read path; creating them is expensive patch by jbellis; reviewed by xedin and slebresne for CASSANDRA-4942 
+AP ,AP [  PoolingSegmentedFile.java  <init> Cleanup cleanup ] , pool [Compressed]RandomAccessReader objects on the partitioned read path; creating them is expensive patch by jbellis; reviewed by xedin and slebresne for CASSANDRA-4942 
+AP ,AP [  PoolingSegmentedFile.java  <init> PoolingSegmentedFile copy ] , pool [Compressed]RandomAccessReader objects on the partitioned read path; creating them is expensive patch by jbellis; reviewed by xedin and slebresne for CASSANDRA-4942 
+AP ,AP [  PoolingSegmentedFile.java  <init> long onDiskLength ] , pool [Compressed]RandomAccessReader objects on the partitioned read path; creating them is expensive patch by jbellis; reviewed by xedin and slebresne for CASSANDRA-4942 
+AP ,AP [  LongToken.java  compareTo Token o ] , Murmur3Partitioner improvements patch by Pavel Yaskevich; reviewed by Jonathan Ellis for CASSANDRA-3772 
+AP ,AP [  LongToken.java  <init> long token ] , Murmur3Partitioner improvements patch by Pavel Yaskevich; reviewed by Jonathan Ellis for CASSANDRA-3772 
+AP ,AP [  ThriftServer.java  <init> int backlog ] , Custom CQL protocol CASSANDRA-2478 
+AP ,AP [  DeletionTime.java  isDeleted OnDiskAtom atom ] , Add support for range tombstones CASSANDRA-3708 
+AP ,AP [  SequentialWriter.java  open File crcPath ] , split BRAF into RandomAccessReader and SequentialWriter patch by pyaskevich and jbellis for CASSANDRA-2921 
+AP ,AP [  RandomAccessReader.java  open long overrideSize ] , split BRAF into RandomAccessReader and SequentialWriter patch by pyaskevich and jbellis for CASSANDRA-2921 
+AP ,AP [  SequentialWriter.java  open int bufferSize ] , split BRAF into RandomAccessReader and SequentialWriter patch by pyaskevich and jbellis for CASSANDRA-2921 
+AP ,AP [  RandomAccessReader.java  open int bufferSize ] , split BRAF into RandomAccessReader and SequentialWriter patch by pyaskevich and jbellis for CASSANDRA-2921 
+AP ,AP [  Term.java  Terminal#get QueryOptions options ] , (mostly )working SELECT; (barely )working UPDATE 
+AP ,AP [  LocalToken.java  compareTo Token o ] , add single-node support for IndexType.KEYS.  patch by jbellis; reviewed by mdennis for CASSANDRA-1154 
+AP ,AP [  BufferedSegmentedFile.java  Builder#complete boolean isFinal ] , replace constant-size 2GB mmaped segments and special casing for index entries spanning segment boundaries; with SegmentedFile that computes segments that always contain entire entries (or rows).  patch by Stu Hood and jbellis for CASSANDRA-1117 
+AP ,AP [  SegmentedFile.java  <init> String path ] , replace constant-size 2GB mmaped segments and special casing for index entries spanning segment boundaries; with SegmentedFile that computes segments that always contain entire entries (or rows).  patch by Stu Hood and jbellis for CASSANDRA-1117 
+AP ,AP [  SegmentedFile.java  <init> Cleanup cleanup ] , replace constant-size 2GB mmaped segments and special casing for index entries spanning segment boundaries; with SegmentedFile that computes segments that always contain entire entries (or rows).  patch by Stu Hood and jbellis for CASSANDRA-1117 
+AP ,AP [  SegmentedFile.java  <init> SegmentedFile copy ] , replace constant-size 2GB mmaped segments and special casing for index entries spanning segment boundaries; with SegmentedFile that computes segments that always contain entire entries (or rows).  patch by Stu Hood and jbellis for CASSANDRA-1117 
+AP ,AP [  SegmentedFile.java  <init> long onDiskLength ] , replace constant-size 2GB mmaped segments and special casing for index entries spanning segment boundaries; with SegmentedFile that computes segments that always contain entire entries (or rows).  patch by Stu Hood and jbellis for CASSANDRA-1117 
+AP ,AP [  BufferedSegmentedFile.java  Builder#complete long overrideLength ] , replace constant-size 2GB mmaped segments and special casing for index entries spanning segment boundaries; with SegmentedFile that computes segments that always contain entire entries (or rows).  patch by Stu Hood and jbellis for CASSANDRA-1117 
+AP ,AP [  AbstractByteOrderedPartitioner.java  midpoint Token lt ] , add ByteOrderedPartitioner. Patch by Stu Hood; reviewed by Gary Dusbabek. CASSANDRA-767 
+AP ,AP [  AbstractByteOrderedPartitioner.java  midpoint Token rt ] , add ByteOrderedPartitioner. Patch by Stu Hood; reviewed by Gary Dusbabek. CASSANDRA-767 
+AP ,AP [  AbstractByteOrderedPartitioner.java  bigForBytes byte[] bytes ] , add ByteOrderedPartitioner. Patch by Stu Hood; reviewed by Gary Dusbabek. CASSANDRA-767 
+AP ,AP [  OutboundTcpConnection.java  writeHeader DataOutput out ] , merge r915463 from 0.6 manually by running rat on trunk 
+AP ,AP [  OutboundTcpConnection.java  writeConnected boolean flush ] , move connecting into OutboundTcpConnection so write does not block for connection startup patch by jbellis; reviewed by gdusbabek for CASSANDRA-728 
+AP ,AP [  MappedFileDataInput.java  readFully byte[] bytes ] , Implement FileDataInput with MappedFileDataInput; backed by a mmap d ByteBuffer. patch by jbellis; reviewed by Brandon Williams and goffinet for CASSANDRA-408 
+AP ,AP [  BytesToken.java  compareTo Token other ] , refactors COPP to use BytesToken.  patch by Stu Hood; reviewed by jbellis for CASSANDRA-242 
+RP ,RP [  DeletionTime.java  isDeleted Column column ] , Make sure RangeTombstone.Tracker only keeps the ranges it needs to 
+RP ,RP [  SequentialWriter.java  open boolean skipIOCache ] , Fix potential data loss in CompressedSequentialWriter CASSANDRA-8949 
+RP ,RP [  SequentialWriter.java  open int bufferSize ] , Fix potential data loss in CompressedSequentialWriter CASSANDRA-8949 
+RP ,RP [  SequentialWriter.java  <init> boolean skipIOCache ] , Fix potential data loss in CompressedSequentialWriter CASSANDRA-8949 
+RP ,RP [  StorageServiceMBean.java  forceRepairRangeAsync int parallelismDegree ] , Remove C* specific class from JMX API CASSANDRA-8193 
+RP ,RP [  StorageServiceMBean.java  forceRepairRangeAsync Collection<String> dataCenters ] , Remove C* specific class from JMX API CASSANDRA-8193 
+RP ,RP [  StorageServiceMBean.java  forceRepairAsync boolean isSequential ] , Remove C* specific class from JMX API CASSANDRA-8193 
+RP ,RP [  StorageServiceMBean.java  forceRepairAsync boolean isLocal ] , Remove C* specific class from JMX API CASSANDRA-8193 
+RP ,RP [  StorageServiceMBean.java  forceRepairRangeAsync Collection<String> hosts ] , Remove C* specific class from JMX API CASSANDRA-8193 
+RP ,RP [  StorageServiceMBean.java  forceRepairRangeAsync boolean isSequential ] , Remove C* specific class from JMX API CASSANDRA-8193 
+RP ,RP [  StorageServiceMBean.java  forceRepairAsync Collection<String> dataCenters ] , Remove C* specific class from JMX API CASSANDRA-8193 
+RP ,RP [  StorageServiceMBean.java  forceRepairAsync int parallelismDegree ] , Remove C* specific class from JMX API CASSANDRA-8193 
+RP ,RP [  StorageServiceMBean.java  forceRepairAsync Collection<String> hosts ] , Remove C* specific class from JMX API CASSANDRA-8193 
+RP ,RP [  StorageServiceMBean.java  forceRepairRangeAsync boolean isLocal ] , Remove C* specific class from JMX API CASSANDRA-8193 
+RP ,RP [  MultiColumnRelation.java  <init> Type relationType ] , Fix non-text comparator col names in cql3 queries CASSANDRA-8178 
+RP ,RP [  SingleColumnRelation.java  <init> Type type ] , Fix non-text comparator col names in cql3 queries CASSANDRA-8178 
+RP ,RP [  SingleColumnRelation.java  <init> List<Term.Raw> inValues ] , Fix non-text comparator col names in cql3 queries CASSANDRA-8178 
+RP ,RP [  MultiColumnRelation.java  createNonInRelation Type relationType ] , Fix non-text comparator col names in cql3 queries CASSANDRA-8178 
+RP ,RP [  SingleColumnRelation.java  <init> boolean onToken ] , Fix non-text comparator col names in cql3 queries CASSANDRA-8178 
+RP ,RP [  StreamResultFuture.java  <init> Collection<StreamSession> sessions ] , stream to private IP when available CASSANDRA-8084 
+RP ,RP [  StreamResultFuture.java  init Collection<StreamSession> sessions ] , Fix sstableloader unable to connect encrypted node CASSANDRA-7585 
+RP ,RP [  RandomAccessReader.java  open PoolingSegmentedFile owner ] , Fix NPE in FileCacheService.sizeInBytes CASSANDRA-7756 
+RP ,RP [  Term.java  Terminal#bind List<ByteBuffer> values ] , Support multi-row selects within a partition using IN  CASSANDRA-6875 
+RP ,RP [  CollectionSerializer.java  pack int size ] , Fixup for CASSANDRA-6914 
+RP ,RP [  CollectionSerializer.java  pack List<ByteBuffer> buffers ] , Fixup for CASSANDRA-6914 
+RP ,RP [  OutboundTcpConnection.java  QueuedMessage#isTimedOut long maxTime ] , Non-droppable verbs shouldn t be dropped from OTC CASSANDRA-5393 
+RP ,RP [  StreamResultFuture.java  createAndRegister Collection<StreamSession> sessions ] , Fix NPE on BulkLoader caused by losing StreamEvent CASSANDRA-6636 
+RP ,RP [  SegmentedFile.java  <init> long onDiskLength ] , Fix FileCacheService regressions patch by jbellis; reviewed by pyaskevich and tested by Kai Wang for CASSANDRA-6149 
+RP ,RP [  SegmentedFile.java  <init> long length ] , Fix FileCacheService regressions patch by jbellis; reviewed by pyaskevich and tested by Kai Wang for CASSANDRA-6149 
+RP ,RP [  SegmentedFile.java  <init> String path ] , Fix FileCacheService regressions patch by jbellis; reviewed by pyaskevich and tested by Kai Wang for CASSANDRA-6149 
+RP ,RP [  SegmentedFile.java  <init> long onDiskLength ] , Fix FileCacheService regressions patch by jbellis; reviewed by pyaskevich and tested by Kai Wang for CASSANDRA-6149 
+RP ,RP [  PoolingSegmentedFile.java  <init> long length ] , Revert  add file_cache_size_in_mb setting  CASSANDRA-5661 
+RP ,RP [  PoolingSegmentedFile.java  <init> String path ] , Revert  add file_cache_size_in_mb setting  CASSANDRA-5661 
+RP ,RP [  PoolingSegmentedFile.java  <init> long onDiskLength ] , Revert  add file_cache_size_in_mb setting  CASSANDRA-5661 
+RP ,RP [  CompressedPoolingSegmentedFile.java  createReader String path ] , reduce memory used by sstr during bulk load patch by Tyler Hobbs and jbellis for CASSANDRA-5555 
+RP ,RP [  StreamResultFuture.java  initReceivingSide UUID planId ] , fix bulkloader patch by yukim reviewed by slebresne for CASSANDRA-5542 
+RP ,RP [  StreamResultFuture.java  maybeComplete StreamSession session ] , Fix deadlock in new Streaming code CASSANDRA-5699 
+RP ,RP [  BytesToken.java  compareTo Token<byte[]> o ] , make BytesToken.toString only return hex bytes patch by Juraj Sustek; reviewed by jbellis for CASSANDRA-5566 
+RP ,RP [  AbstractByteOrderedPartitioner.java  midpoint Token ltoken ] , Removed compatibility with pre-1.2.5 sstables and network messages patch by jbellis; reviewed by marcuse for CASSANDRA-5511 
+RP ,RP [  AbstractByteOrderedPartitioner.java  midpoint Token rtoken ] , Removed compatibility with pre-1.2.5 sstables and network messages patch by jbellis; reviewed by marcuse for CASSANDRA-5511 
+RP ,RP [  OutboundTcpConnection.java  writeHeader DataOutputStream out ] , Removed compatibility with pre-1.2.5 sstables and network messages patch by jbellis; reviewed by marcuse for CASSANDRA-5511 
+RP ,RP [  AbstractByteOrderedPartitioner.java  midpoint Token ltoken ] , Removed compatibility with pre-1.2.5 sstables and network messages patch by jbellis; reviewed by marcuse for CASSANDRA-5511 
+RP ,RP [  LongToken.java  compareTo Token<Long> o ] , Murmur3Partitioner improvements patch by Pavel Yaskevich; reviewed by Jonathan Ellis for CASSANDRA-3772 
+RP ,RP [  LongToken.java  <init> Long token ] , Murmur3Partitioner improvements patch by Pavel Yaskevich; reviewed by Jonathan Ellis for CASSANDRA-3772 
+RP ,RP [  AbstractByteOrderedPartitioner.java  bigForBytes ByteBuffer bytes ] , r/m unnecessary Arrays.fill call patch by dbrosius; reviewed by jbellis for CASSANDRA-4059 
+RP ,RP [  LocalToken.java  compareTo Token<ByteBuffer> o ] , Fix minor issues reported by FindBugs patch by slebresne; reviewed by jbellis for CASSANDRA-3658 
+RP ,RP [  MappedFileDataInput.java  readFully byte[] buffer ] , zero-copy reads Patch by Pavel Yaskevich; Reviewed by Jake Luciani for CASSANDRA-1714 
+MM ,MM [  RangeTombstoneList.java  diff NativeCounterCell ] , Backport CASSANDRA-8013 to 2.0 
+MM ,MM [  CommitLog.java  resetUnsafe CommitLogSegmentManager ] , Stop CommitLogTest hanging CASSANDRA-8992
+MM ,MM [  UntypedResultSet.java  iterator UntypedResultSet#FromResultSet ] , Fix error msg when creating index on compact value columns CASSANDRA-9527 
+MM ,MM [  UntypedResultSet.java  iterator UntypedResultSet#FromResultList ] , Fix error msg when creating index on compact value columns CASSANDRA-9527 
+MM ,MM [  CounterMutation.java  toString IndexExpression ] , Expose some internals of SelectStatement for inspection by QueryHandlers CASSANDRA-9532 
+MM ,MM [  ColumnStats#MinTracker.java  update ColumnStats#MaxLongTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  ColumnStats#MinTracker.java  update ColumnStats#MaxIntTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  ColumnStats#MinTracker.java  update ColumnStats#MinLongTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  ColumnStats#MaxTracker.java  update ColumnStats#MaxLongTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  ColumnStats#MaxTracker.java  update ColumnStats#MaxIntTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  ColumnStats#MaxTracker.java  update ColumnStats#MinLongTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  ColumnStats#MinTracker.java  get ColumnStats#MaxIntTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  ColumnStats#MinTracker.java  get ColumnStats#MinLongTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  ColumnStats#MinTracker.java  get ColumnStats#MaxLongTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  ColumnStats#MaxTracker.java  get ColumnStats#MaxIntTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  ColumnStats#MaxTracker.java  get ColumnStats#MinLongTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  ColumnStats#MaxTracker.java  get ColumnStats#MaxLongTracker ] , Track min/max timestamps and maxLocalDeletionTime correctly CASSANDRA-7969 
+MM ,MM [  BigIntegerToken.java  compareTo ComparableObjectToken ] , Fix possible infinite loop in create repair range CASSANDRA-7983 
+MM ,MM [  StringToken.java  compareTo ComparableObjectToken ] , Fix possible infinite loop in create repair range CASSANDRA-7983 
+MM ,MM [  AbstractCommutativeType.java  compose CounterColumnType ] , Remove CPRR/CPIF. CASSANDRA-7570 
+MM ,MM [  BatchlogEndpointSelectorTest.java  shouldReturnAsIsIfNoEnoughEndpoints BatchlogEndpointFilterTest ] , Make batchlog replica selection rack-aware patch by Mikhail Stepura; reviewed by jbellis for CASSANDRA-6551 
+MM ,MM [  BatchlogEndpointSelectorTest.java  shouldSelect2hostsFromNonLocalRacks BatchlogEndpointFilterTest ] , Make batchlog replica selection rack-aware patch by Mikhail Stepura; reviewed by jbellis for CASSANDRA-6551 
+MM ,MM [  BatchlogEndpointSelectorTest.java  shouldSelectHostFromLocal BatchlogEndpointFilterTest ] , Make batchlog replica selection rack-aware patch by Mikhail Stepura; reviewed by jbellis for CASSANDRA-6551 
+MM ,MM [  AbstractCommutativeType.java  decompose CounterColumnType ] , Fix writetime/ttl methods for static columns CASSANDRA-7081 
+MM ,MM [  CommitLogAllocator.java  shutdown CommitLogSegmentManager ] , Add commit_failure_policy. CASSANDRA-6364 
+MM ,MM [  ChecksummedOutputStream.java  write DataOutputByteBuffer ] , Stop CommitLogSegment.close() from unnecessarily calling sync() prior to cleaning the buffer. CASSANDRA-6652 
+MM ,MM [  ChecksummedOutputStream.java  write DataOutputStreamPlus ] , Stop CommitLogSegment.close() from unnecessarily calling sync() prior to cleaning the buffer. CASSANDRA-6652 
+MM ,MM [  ByteBufferOutputStream.java  write DataOutputByteBuffer ] , Stop CommitLogSegment.close() from unnecessarily calling sync() prior to cleaning the buffer. CASSANDRA-6652 
+MM ,MM [  ByteBufferOutputStream.java  write SafeMemoryWriter ] , Stop CommitLogSegment.close() from unnecessarily calling sync() prior to cleaning the buffer. CASSANDRA-6652 
+MM ,MM [  BufferedPoolingSegmentedFile.java  createReader SegmentedFile ] , use non-pooling readers with openForBatch patch by jbellis; reviewed by yukim for CASSANDRA-6067 
+MM ,MM [  RemoveColumnTest.java  testRemoveColumn RemoveCellTest ] , replace import junit.framework.* with org.junit.* (junit3 vs junit4) 
+MM ,MM [  RemoveSubColumnTest.java  testRemoveSubColumn RemoveSubCellTest ] , replace import junit.framework.* with org.junit.* (junit3 vs junit4) 
+MM ,MM [  CFName.java  getKeyspace KeyspaceElementName ] , DC-local CAS CASSANDRA-5797 
+MM ,MM [  CFName.java  getKeyspace UTName ] , DC-local CAS CASSANDRA-5797 
+MM ,MM [  CFName.java  hasKeyspace KeyspaceElementName ] , Normalize table-manipulating CQL3 statements  class names CASSANDRA-5759 
+MM ,MM [  CFName.java  hasKeyspace UTName ] , Normalize table-manipulating CQL3 statements  class names CASSANDRA-5759 
+MM ,MM [  LocalToken.java  hashCode ComparableObjectToken ] , Rename Table to Keyspace CASSANDRA-5613 
+MM ,MM [  RemoveSubColumnTest.java  testRemoveSubColumnAndContainer RemoveSubCellTest ] , Rename Table to Keyspace CASSANDRA-5613 
+MM ,MM [  ValidationComplete#ValidationCompleteSerializer.java  serializedSize SnapshotMessage#SnapshotMessageSerializer ] , Redesign repair messages CASSANDRA-5613 
+MM ,MM [  ValidationComplete#ValidationCompleteSerializer.java  deserialize SnapshotMessage#SnapshotMessageSerializer ] , Redesign repair messages CASSANDRA-5613 
+MM ,MM [  StressAction.java  run Stress#ShutDown ] , Add a rate limit option to stress patch by jasobrown; reviewed by driftx for CASSANDRA-5004 
+MM ,MM [  CommitLogAllocator.java  bytesUsed CommitLogSegmentManager ] , New metrics; patch by yukim reviewed by brandonwilliams for CASSANDRA-4009 
+MM ,MM [  CommitLogAllocator.java  getActiveSegments CommitLogSegmentManager ] , clean up ioexceptions patch by Aleksey Yeschenko and jbellis for CASSANDRA-2116 
+MM ,MM [  CommitLogAllocator.java  manages CommitLogSegmentManager ] , clean up ioexceptions patch by Aleksey Yeschenko and jbellis for CASSANDRA-2116 
+MM ,MM [  RemoveColumnTest.java  deletedColumnShouldAlwaysBeMarkedForDelete RemoveCellTest ] , Make sure DeletedColumn.isMFD always return true CASSANDRA-4307 
+MM ,MM [  CommitLogAllocator.java  discardSegment CommitLogSegmentManager ] , add debug messages to commitlog allocator 
+MM ,MM [  CommitLogAllocator.java  awaitTermination AbstractCommitLogService ] , [3649] Strip end of line whitespaces 
+MM ,MM [  BatchCommitLogExecutorService.java  awaitTermination AbstractCommitLogService ] , [3649] Strip end of line whitespaces 
+MM ,MM [  PeriodicCommitLogExecutorService.java  awaitTermination AbstractCommitLogService ] , [3649] Strip end of line whitespaces 
+MM ,MM [  CommitLogAllocator.java  enableReserveSegmentCreation CommitLogSegmentManager ] , fix commitlog segment recycling patch by Rick Branson; reviewed by jbellis for CASSANDRA-3557 
+IT ,IT [  TTLExpiryTest.java  KEYSPACE1  testAggressiveFullyExpired() ] , Add tool to find why expired sstables are not getting dropped CASSANDRA-10015 
+IT ,IT [  ColumnIndex.java  comparator  Builder#build() ] , Validate indexed values rather than the base column CASSANDRA-9564 
+IT ,IT [  Memory.java  end  getBytes() ] , Overload SecondaryIndex#indexes to accept the column definition CASSANDRA-9314 
+IT ,IT [  RetriedSliceFromReadCommand.java  readCommand  copy() ] , Correctly handle null in conditions with TTL CASSANDRA-6623 
+IT ,IT [  SerializationsTest.java  out  testWriteResponseWrite() ] , unify test timeouts; exclude pig 
+IT ,IT [  SerializationsTest.java  out  testRangeSliceCommandWrite() ] , unify test timeouts; exclude pig 
+IT ,IT [  SerializationsTest.java  out  testEstimatedHistogramWrite() ] , unify test timeouts; exclude pig 
+IT ,IT [  SerializationsTest.java  out  testGossipDigestWrite() ] , unify test timeouts; exclude pig 
+IT ,IT [  SerializationsTest.java  out  testTruncateWrite() ] , unify test timeouts; exclude pig 
+IT ,IT [  SerializationsTest.java  out  testSliceFromReadCommandWrite() ] , unify test timeouts; exclude pig 
+IT ,IT [  SerializationsTest.java  out  testBloomFilterWrite() ] , unify test timeouts; exclude pig 
+IT ,IT [  SerializationsTest.java  out  testEndpointStateWrite() ] , unify test timeouts; exclude pig 
+IT ,IT [  SerializationsTest.java  out  testRowWrite() ] , unify test timeouts; exclude pig 
+IT ,IT [  SerializationsTest.java  out  testSliceByNamesReadCommandWrite() ] , unify test timeouts; exclude pig 
+IT ,IT [  OutboundTcpConnection.java  tmp  run() ] , sstables from stalled repair sessions become live after a reboot and can resurrect deleted data patch by jasobrown; reviewed by yukim for CASSANDRA-6503 
+IT ,IT [  CompactionsPurgeTest.java  future  testRowTombstoneObservedBeforePurging() ] , Fix row tombstones in larger-than-memory compactions patch by thobbs; reviewed by jbellis for CASSANDRA-6008 
+IT ,IT [  AbstractByteOrderedPartitioner.java  b  bigForBytes() ] , Upgrade Thrift to 0.9.1 CASSANDRA-5923 
+PUC,PUC [  BloomFilter.java  BloomFilter  NA ] , Ensure SSTableWriter cleans up properly after failure CASSANDRA-8499 
+PUC,PUC [  PoolingSegmentedFile.java  PoolingSegmentedFile  NA ] , Revert  add file_cache_size_in_mb setting  CASSANDRA-5661 
+PDM,PDM [  AbstractCommutativeType.java  compose() CounterColumnType ] , Adds support for columns that act as incr/decr counters. Patch primarily by Kelvin Kakugawa with select parts from Chris Goffinet; Sylvain Lebresne; Rob Coli; Johan Oskarsson; Adam Samet; Jaakko Laine and more. Review by Jonathan Ellis and Sylvain Lebresne. CASSANDRA-1072. 
+PDM,PDM [  AbstractCommutativeType.java  decompose() CounterColumnType ] , Adds support for columns that act as incr/decr counters. Patch primarily by Kelvin Kakugawa with select parts from Chris Goffinet; Sylvain Lebresne; Rob Coli; Johan Oskarsson; Adam Samet; Jaakko Laine and more. Review by Jonathan Ellis and Sylvain Lebresne. CASSANDRA-1072. 

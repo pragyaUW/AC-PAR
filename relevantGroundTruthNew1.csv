@@ -1,0 +1,100 @@
+RefType,Reason
+Add_Parameter [ SingleColumnRelation <init> Operator type ] ,Support multi-row selects within a partition using IN
+Add_Parameter [ MultiColumnRelation <init> Operator relationType ] ,Support multi-row selects within a partition using IN
+Add_Parameter [ OutboundTcpConnection isTimedOut long maxTimeNanos ] ,finish renaming entry variables
+Add_Parameter [ BufferedPoolingSegmentedFile  Builder#complete boolean isFinal ] , reduce memory used by sstr during bulk load patch by Tyler Hobbs and jbellis for CASSANDRA-5555
+Add_Parameter [ CompressedPoolingSegmentedFile Builder#complete long overrideLength ] ,reduce memory used by sstr during bulk load patch by Tyler Hobbs and jbellis for CASSANDRA-5555 
+Add_Parameter [ StreamResultFuture attachSocket int sessionIndex ] ,fix bulkloader patch by yukim reviewed by slebresne for CASSANDRA-5542
+Add_Parameter [ CollectionSerializer pack Collection<ByteBuffer> buffers ] ,Cleanup AbstractType/TypeSerializer classes
+Add_Parameter [ CollectionSerializer pack int version ] ,Fixup for CASSANDRA-6914  null handling
+Add_Parameter [ StreamResultFuture initReceivingSide int sessionIndex ] ,Fix deadlock in new Streaming code
+Add_Parameter [ ProgressInfo <init> int sessionIndex ] ,Streaming 2.0
+Add_Parameter [ StreamInitMessage <init> int sessionIndex ] ,Fix deadlock in new Streaming code 
+Add_Parameter [ StreamResultFuture <init> StreamCoordinator coordinator ] ,Fix deadlock in new Streaming code 
+Add_Parameter [ StorageServiceMBean forceRepairRangeAsync boolean isSequential ] , Remove C* specific class from JMX API 
+Add_Parameter [ StorageServiceMBean forceRepairRangeAsync boolean isLocal ] , Remove C* specific class from JMX API 
+Add_Parameter [ Term Terminal#bind QueryOptions options ] ,Support named bind variables in CQL
+Add_Parameter [ PoolingSegmentedFile PoolingSegmentedFile String path ] ,pool [Compressed]RandomAccessReader objects on the partitioned read path; creating them is expensive patch by jbellis; reviewed by xedin and slebresne for CASSANDRA-4942
+Remove parameter [ DeletionTime isDeleted Column column ] ,Fix columns expiring in the middle of 2 phase compactions
+Remove parameter [ SequentialWriter open boolean skipIOCache ] ,clean up ioexceptions patch by Aleksey Yeschenko and jbellis for CASSANDRA-2116
+Remove parameter [ StorageServiceMBean forceRepairRangeAsync int parallelismDegree ] ,Remove C* specific class from JMX API
+Remove parameter [ SingleColumnRelation <init> List<Term.Raw> inValues ] ,Fix non-text comparator col names in cql3 queries
+Remove parameter [ MultiColumnRelation createNonInRelation Type relationType ] ,Fix non-text comparator col names in cql3 queries
+Remove parameter [ StreamResultFuture <init> Collection<StreamSession> sessions ] ,fix CME in StreamResultFuture patch by Mikhail Stepura; reviewed by jbellis for CASSANDRA-6129
+Remove parameter [ RandomAccessReader open boolean skipIOCache ] , inline an infrequently-used RAR.open overload 
+Remove parameter [ Term.java  Terminal#bind List<ByteBuffer> values ] ,Support named bind variables in CQL
+Remove parameter [ CollectionSerializer pack int size ] ,Fixup for CASSANDRA-6914  null handling
+Remove parameter [ OutboundTcpConnection QueuedMessage#isTimedOut long maxTime ] , Add retry mechanism to OTC for non-droppable_verbs patch by jasobrown; reviewed by jbellis for CASSANDRA-5393 
+Remove parameter [ StreamResultFuture createAndRegister Collection<StreamSession> sessions ] ,Fix deadlock in new Streaming code
+Remove parameter [ SegmentedFile <init> long onDiskLength ] , replace constant-size 2GB mmaped segments and special casing for index entries spanning segment boundaries  with SegmentedFile that computes segments that always contain entire entries (or rows).  patch by Stu Hood and jbellis for CASSANDRA-1117 
+Remove parameter [ PoolingSegmentedFile <init> long length ] , add file_cache_size_in_mb setting patch by pyaskevich and jbellis for CASSANDRA-5661
+Remove parameter [ CompressedPoolingSegmentedFile createReader String path ] ,reduce memory used by sstr during bulk load patch by Tyler Hobbs and jbellis for CASSANDRA-5555
+Remove parameter [ StreamResultFuture initReceivingSide UUID planId ] ,fix bulkloader patch by yukim reviewed by slebresne for CASSANDRA-5542
+Remove parameter [ SingleColumnRelation <init> boolean onToken ] ,Fix non-text comparator col names in cql3 queries
+Move method [ RangeTombstoneList NativeCounterCell diff ] ,Backport CASSANDRA-6863 without digest updates
+Move method [ CommitLog CommitLog SegmentManager resetUnsafe ] ,Merge from 0.8
+Move method [ UntypedResultSet UntypedResultSet# FromResultSet iterator ] , avoid flushing everyone on truncate; save truncation position in system table instead patch by jbellis; reviewed by yukim for CASSANDRA-4906
+Move method [ CounterMutation IndexExpression toString ] ,
+Move method [ ColumnStats# MinTracker ColumnStats# MaxLongTracker update ] ,Track min/max timestamps and maxLocalDeletionTime correctly
+Move method [ BigIntegerToken ComparableObject Token compareTo ] ,refactors COPP to use BytesToken.  patch by Stu Hood; reviewed by 
+Move method [ StringToken ComparableObject Token compareTo ] ,migrate from BigInteger to abstract Token  with BigIntegerToken and StringToken subclasses controlled by Random and OrderPreserving partitioners  respectively 
+Move method [ AbstractCommutativeType CounterColumn Type compose ] ,fix merge problem with CHANGES.txt  use right call in AbstractCommutativeType.compose()
+Move method [ BatchlogEndpointSelectorTest BatchlogEndpointFilterTest shouldReturnAsIsIfNoEnoughEndpoints ] ,Make batchlog replica selection rack-aware patch by Mikhail Stepura; reviewed by jbellis for CASSANDRA-6551
+Move method [ AbstractCommutativeType CounterColumnType decompose ] ,add decompose methods to new-since-0.7 AbstractTypes patch by jbellis 
+Move method [ CommitLogAllocator CommitLogSegmentManager shutdown ] ,fix commitlog segment recycling patch by Rick Branson; reviewed by jbellis for CASSANDRA-3557
+Move method [ ChecksummedOutputStream DataOutputByteBuffer write ] , avoid serializing to byte[] on commitlog append patch by jbellis; reviewed by yukim for CASSANDRA-5199
+Move method [ ByteBufferOutputStream DataOutputByteBuffer write ] ,avoid serializing to byte[] on commitlog append patch by jbellis; reviewed by yukim for CASSANDRA-5199
+Move method [ BufferedPoolingSegmentedFile  SegmentedFile createReader ] ,educe memory used by sstr during bulk load patch by Tyler Hobbs and jbellis for CASSANDRA-5555
+Move method [ RemoveColumnTest RemoveCellTest testRemoveColumn ] ,replace import junit.framework.* with org.junit.*
+Move Field [ StressAction#Consumer WorkManager#ContinuousWorkManager stop ] ,stress tool to return appropriate exit code on failure patch by Tyler Patterson; reviewed by Pavel Yaskevich for CASSANDRA-4188 
+Move Field [ ByteBufferOutputStream  DataOutputByteBuffer buffer ] ,avoid serializing to byte[] on commitlog append patch by jbellis; reviewed by yukim for CASSANDRA-5199 
+Move Field [ AlterTableTest PreparedStatementsTest KEYSPACE ] ,Update indexInterval in CFMetadata.apply() 
+Move Field [ BatchlogEndpointSelectorTest BatchlogEndpointFilterTest LOCAL ] ,Make batchlog replica selection rack-aware patch by Mikhail Stepura; reviewed by jbellis for CASSANDRA-6551
+Move Field [ CommitLogAllocator CommitLogSegmentManager activeSegments ] ,add debug messages to commitlog allocator 
+Move Field [ CommitLogAllocator.java  CommitLogSegmentManager run ] ,add debug messages to commitlog allocator 
+Move Field [ ThreadPoolMetrics#ThreadPoolMetricNameFactory ThreadPoolMetricNameFactory poolName ] ,New metrics; patch by yukim reviewed by brandonwilliams for CASSANDRA-4009
+Move Field [ CFName KeyspaceElementName ksName ] ,CQL 3.0 beta
+Move Field [ StressAction WorkManager#ContinuousWorkManager stop ] ,stress.java daemon mode. Patch by Pavel Yaskevich  reviewed by brandonwilliams for CASSANDRA-2267
+Move Field [ FastByteComparisons#LexicographicalComparerHolder FastByteOperations#BestHolder UNSAFE_COMPARER_NAME ] ,Add missing file from previous commit
+Move Field [ ChecksummedOutputStream DataOutputStreamPlus out ] ,avoid serializing to byte[] on commitlog append patch by jbellis; reviewed by yukim for CASSANDRA-5199 
+Move Field [ ThreadPoolMetrics#ThreadPoolMetricNameFactory ThreadPoolMetricNameFactory path ] ,New metrics; patch by yukim reviewed by brandonwilliams for CASSANDRA-4009
+Move Field [ UntypedResultSet UntypedResultSet#FromResultList cqlRows ] ,Add type information to new schema_ columnfamilies and remove thrift validation 
+Move Field [ Memory SafeMemory#MemoryTidy size ] ,off-heap cache to use sun.misc.Unsafe instead of JNA patch by Pavel Yaskevich; reviewed by Jonathan Ellis for CASSANDRA-3271 
+Move Field [ RowCacheTest DataTrackerTest KEYSPACE ] , add RowCacheTest patch by Pavel Yaskevich; reviewed by jbellis for CASSANDRA-2173 
+rename method [ AbstractQueryPagerTest DiscardLastTest() discardFirstTest() ] ,Fix paging discardFirst IllgalArgumentException 
+rename method [ EndpointState getApplicationStateMap() states() ] ,rename EndPoint classes -> Endpoint (case change). patch by Erick Tryzelaar; reviewed by jbellis for CASSANDRA-994 
+rename method [ EndpointState getApplicationStateMap() addApplicationState() ] ,rename EndPoint classes -> Endpoint (case change). patch by Erick Tryzelaar; reviewed by jbellis for CASSANDRA-995
+rename method [ BatchQueryOptions getValues() withPerStatementVariables() ] ,Adds QueryHandler interface CASSANDRA-6659 
+rename method [ CommitLogDescriptor getVersion() fromHeader() ] ,Add Commitlog Versioning patch by Vijay; reviewed by jbellis for CASSANDRA-4357
+rename method [ CommitLogDescriptor getVersion() toString() ] ,Add Commitlog Versioning patch by Vijay; reviewed by jbellis for CASSANDRA-4358
+rename method [ GCInspector logGCResults() getTotalSinceLastCheck() ] ,merge from 0.6
+rename method [ ObjectSizes getReferenceSize() sizeOfReferenceArray() ] ,replace measureDeep in key cache with custom calculation patch by Vijay; reviewed by Jonathan Ellis for CASSANDRA-4860 
+rename method [ UntypedResultSet iterator() create() ] ,Add type information to new schema_ columnfamilies and remove thrift validation
+rename method [ ListSerializer deserialize() validateForNativeProtocol() ] ,Cleanup AbstractType/TypeSerializer classes 
+rename method [ ObjectSizes getEffectiveMemoryLayoutSpecification() measure() ] ,replace measureDeep in key cache with custom calculation patch by Vijay; reviewed by Jonathan Ellis for CASSANDRA-4860 
+rename method [ SetSerializer deserialize() deserializeForNativeProtocol() ] ,Don t tie client side use of AbstractType to JDBC
+rename method [ ObjectSizes getEffectiveMemoryLayoutSpecification() sizeOfReferenceArray() ] ,replace measureDeep in key cache with custom calculation patch by Vijay; reviewed by Jonathan Ellis for CASSANDRA-4860 
+rename method [ CommitLogDescriptor getVersion() writeHeader() ] ,Add Commitlog Versioning patch by Vijay; reviewed by jbellis for CASSANDRA-4357 
+InLineTemp [ TTLExpiryTest KEYSPACE1 testAggressiveFullyExpired() ] ,Track maximum ttl and use to expire entire sstables 
+InLineTemp [ ColumnIndex comparator  Builder#build() ] ,Promote columns index to primary index file CASSANDRA-2319
+InLineTemp [ Memory  end getBytes() ] ,ninja fix for missing buffer offsets in CASSANDRA-5884
+InLineTemp [ RetriedSliceFromReadCommand readCommand  copy() ] ,Add missing file from previous commit
+InLineTemp [ SerializationsTest out testWriteResponseWrite() ] ,Serialization tests. patch by gdusbabek  reviewed by jbellis. CASSANDRA-1923
+InLineTemp [ SerializationsTest out  testEstimatedHistogramWrite() ] ,Serialization tests. patch by gdusbabek  reviewed by jbellis. CASSANDRA-1924
+InLineTemp [ SerializationsTest out testTruncateWrite() ] ,Serialization tests. patch by gdusbabek  reviewed by jbellis. CASSANDRA-1925
+InLineTemp [ SerializationsTest  out testSliceByNamesReadCommandWrite() ] ,Serialization tests. patch by gdusbabek  reviewed by jbellis. CASSANDRA-1926
+InLineTemp [ OutboundTcpConnection tmp run() ] ,replace tcp writes w/ blocking i/o patch by jbellis; reviewed by Brandon Williams for CASSANDRA-705
+InLineTemp [ CompactionsPurgeTest future testRowTombstoneObservedBeforePurging() ] ,expose failing test by moving it where other tests are not covering it up somehow.  patch by jbellis 
+InLineTemp [ AbstractByteOrderedPartitioner b bigForBytes() ] , add ByteOrderedPartitioner. Patch by Stu Hood  reviewed by Gary Dusbabek. CASSANDRA-767
+InLineTemp [ SerializationsTest out testRangeSliceCommandWrite() ] ,Serialization tests. patch by gdusbabek  reviewed by jbellis. CASSANDRA-1923 
+InLineTemp [ SerializationsTest out testGossipDigestWrite() ] ,Serialization tests. patch by gdusbabek  reviewed by jbellis. CASSANDRA-1924
+InLineTemp [ SerializationsTest out testBloomFilterWrite() ] ,Serialization tests. patch by gdusbabek  reviewed by jbellis. CASSANDRA-1925
+InLineTemp [ SerializationsTest out testRowWrite() ] ,Serialization tests. patch by gdusbabek  reviewed by jbellis. CASSANDRA-1926
+pushdownmethod [ AbstractCommutativeType CounterColumnType compose() ] ,compose method for AbstractTypes. patch by gdusbabek  reviewed by eevans. CASSANDRA-2262 
+pushdownmethod [ AbstractCommutativeType CounterColumnType decompose() ] ,add decompose methods to new-since-0.7 AbstractTypes patch by jbellis 
+pullupconstructor [ BloomFilter  BloomFilter()  ] ,merge from 0.5 
+pullupconstructor [ PoolingSegmentedFile PoolingSegmentedFile ()  ] , Revert   add file_cache_size_in_mb setting   
+ExtractSuperclass [ CFName KeyspaceElementName  ] ,CQL 3.0 beta
+ExtractSuperclass [ BigIntegerToken ComparableObjectToken  ] ,migrate from BigInteger to abstract Token  with BigIntegerToken and StringToken subclasses controlled by Random and OrderPreserving partitioners  respectively 
+ExtractSuperclass [ LocalToken ComparableObjectToken  ] ,add single-node support for IndexType.KEYS.  patch by jbellis; reviewed by mdennis for CASSANDRA-1154
+ExtractSuperclass [ StringToken ComparableObjectToken  ] ,migrate from BigInteger to abstract Token  with BigIntegerToken and StringToken subclasses controlled by Random and OrderPreserving partitioners  respectively 
